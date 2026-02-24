@@ -1,0 +1,272 @@
+.detail-page {
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  padding: 15px 40px;
+  font-size: 13px;
+  color: #6b7280;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-container {
+  display: flex;
+  gap: 30px;
+  padding: 30px 40px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.detail-left {
+  flex: 2;
+}
+
+.detail-img {
+  width: 100%;
+  height: 350px;
+  background-color: #d1fae5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  margin-bottom: 25px;
+  border: 1px solid #e5e7eb;
+}
+
+.detail-info {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid #e5e7eb;
+}
+
+.detail-info h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 10px 0 8px;
+}
+
+.detail-location {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.detail-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #065f46;
+  margin-bottom: 20px;
+}
+
+.detail-specs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+  margin-bottom: 20px;
+}
+
+.spec {
+  background: #f0fdf4;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #065f46;
+}
+
+.detail-description {
+  margin-bottom: 25px;
+}
+
+.detail-description h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.detail-description p {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.8;
+}
+
+.detail-features h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.feature-item {
+  background: #f0fdf4;
+  color: #065f46;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.detail-right {
+  flex: 1;
+  position: sticky;
+  top: 80px;
+}
+
+.contact-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+}
+
+.contact-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 18px;
+}
+
+.landlord-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.landlord-avatar {
+  font-size: 40px;
+  background: #f0fdf4;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landlord-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.landlord-type {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 3px;
+}
+
+.whatsapp-btn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background-color: #25d366;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe57;
+}
+
+.phone-btn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background-color: #065f46;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.phone-btn:hover {
+  background-color: #047857;
+}
+
+.contact-note {
+  font-size: 12px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.safety-card {
+  background: #fffbeb;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #fde68a;
+}
+
+.safety-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 12px;
+}
+
+.safety-card ul {
+  padding-left: 18px;
+}
+
+.safety-card ul li {
+  font-size: 13px;
+  color: #78350f;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: 12px 20px;
+  }
+
+  .detail-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .detail-img {
+    height: 250px;
+    font-size: 70px;
+  }
+
+  .detail-right {
+    position: static;
+    width: 100%;
+  }
+
+  .detail-info h2 {
+    font-size: 20px;
+  }
+
+  .detail-price {
+    font-size: 18px;
+  }
+}
