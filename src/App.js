@@ -4,6 +4,7 @@ import './App.css';
 import Listings from './Listings';
 import PropertyDetail from './PropertyDetail.js';
 import ListProperty from './ListProperty';
+import Admin from './Admin';
 
 function App() {
   const [page, setPage] = useState('home');
@@ -37,6 +38,10 @@ function App() {
 
   if (page === 'list') {
     return <ListProperty onNavigate={handleNavigate} />;
+  }
+
+  if (page === 'admin') {
+    return <Admin onNavigate={handleNavigate} />;
   }
 
   return (
@@ -170,6 +175,7 @@ function App() {
 
       <footer className="footer">
         <p>© 2026 Nyumba · Built for Malawi 🇲🇼 · Blantyre & Lilongwe</p>
+        <p className="admin-link" onClick={() => handleNavigate('admin')}>Admin</p>
       </footer>
 
     </div>
