@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ListProperty.css';
+import { submitProperty } from './supabase';
 
 function ListProperty({ onNavigate }) {
   const [formData, setFormData] = useState({
@@ -19,15 +20,46 @@ function ListProperty({ onNavigate }) {
     whatsapp: ''
   });
 
-  const [submitted, setSubmitted] = useState(false);
+const [submitted, setSubmitted] = useState(false);
+const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    const propertyData = {
+      title: formData.title,
+      type: formData.type,
+      listing_type: formData.listingType,
+      city: formData.city,
+      location: formData.location + ', ' + formData.city,
+      price: parseInt(formData.price),
+      price_label: 'MWK ' + parseInt(formData.price).toLocaleString() + (formData.listingType === 'rent' ? ' / month' : ''),
+      size: parseInt(formData.size) || 0,
+      bedrooms: parseInt(formData.bedrooms),
+      bathrooms: parseInt(formData.bathrooms),
+      description: formData.description,
+      features: formData.features,
+      landlord: formData.landlord,
+      phone: formData.phone,
+      whatsapp: formData.whatsapp.replace('+', ''),
+      emoji: '🏠',
+      status: 'pending'
+    };
+
+    const success = await submitProperty(propertyData);
+
+    if (success) {
+      setSubmitted(true);
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+
+    setLoading(false);
     window.scrollTo(0, 0);
   };
 
@@ -257,8 +289,10 @@ function ListProperty({ onNavigate }) {
           <div className="form-note">
             <p>🛡️ By submitting this form you confirm that you are the owner or authorized agent for this property. Nyumba reserves the right to remove listings that violate our guidelines.</p>
           </div>
-
-          <button type="submit" className="submit-btn">Submit Listing for Review</button>
+<button type="submit" className="submit-btn" disabled={loading}>
+  {loading ? 'Submitting...' : 'Submit Listing for Review'}
+</button>
+         
 
         </form>
 

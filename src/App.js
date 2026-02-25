@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchProperties } from './supabase';
 import './App.css';
 import Listings from './Listings';
 import PropertyDetail from './PropertyDetail.js';
 import ListProperty from './ListProperty';
 
-const properties = [
-  { id: 1, emoji: "🏡", badge: "rent", label: "For Rent", title: "3 Bedroom House", location: "Area 47, Lilongwe", price: "MWK 180,000 / month" },
-  { id: 2, emoji: "🏢", badge: "sale", label: "For Sale", title: "2 Bedroom Apartment", location: "Limbe, Blantyre", price: "MWK 45,000,000" },
-  { id: 3, emoji: "🏠", badge: "rent", label: "For Rent", title: "4 Bedroom House", location: "Nyambadwe, Blantyre", price: "MWK 250,000 / month" },
-  { id: 4, emoji: "🏡", badge: "sale", label: "For Sale", title: "5 Bedroom Villa", location: "Salima Road, Lilongwe", price: "MWK 120,000,000" },
-  { id: 5, emoji: "🏘️", badge: "rent", label: "For Rent", title: "1 Bedroom Flat", location: "Chirimba, Blantyre", price: "MWK 75,000 / month" },
-  { id: 6, emoji: "🏠", badge: "rent", label: "For Rent", title: "2 Bedroom House", location: "Area 25, Lilongwe", price: "MWK 130,000 / month" },
-];
-
 function App() {
   const [page, setPage] = useState('home');
   const [selectedProperty, setSelectedProperty] = useState(null);
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    loadProperties();
+  }, []);
+
+  const loadProperties = async () => {
+    const data = await fetchProperties();
+    if (Array.isArray(data)) {
+      setProperties(data.slice(0, 6));
+    }
+  };
 
   const handleNavigate = (target, data) => {
     setPage(target);
@@ -124,11 +128,13 @@ function App() {
             <div className="card" key={property.id}>
               <div className="card-img">{property.emoji}</div>
               <div className="card-info">
-                <span className={`badge ${property.badge}`}>{property.label}</span>
+                <span className={`badge ${property.listing_type}`}>
+                  {property.listing_type === 'rent' ? 'For Rent' : 'For Sale'}
+                </span>
                 <h3>{property.title}</h3>
                 <p>📍 {property.location}</p>
-                <p className="price">{property.price}</p>
-                <button className="view-btn" onClick={() => handleNavigate('listings')}>View Details</button>
+                <p className="price">{property.price_label}</p>
+                <button className="view-btn" onClick={() => handleNavigate('detail', property)}>View Details</button>
               </div>
             </div>
           ))}

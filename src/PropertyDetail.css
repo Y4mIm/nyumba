@@ -270,3 +270,14 @@
     font-size: 18px;
   }
 }
+.nav-link {
+  color: #d1fae5;
+  margin-left: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: white;
+}
