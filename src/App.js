@@ -5,11 +5,16 @@ import Listings from './Listings';
 import PropertyDetail from './PropertyDetail.js';
 import ListProperty from './ListProperty';
 import Admin from './Admin';
+import Auth from './Auth';
 
 function App() {
   const [page, setPage] = useState('home');
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [properties, setProperties] = useState([]);
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem('nyumba_user');
+    return saved ? JSON.parse(saved) : null;
+  });
 
   useEffect(() => {
     loadProperties();
@@ -28,6 +33,17 @@ function App() {
     window.scrollTo(0, 0);
   };
 
+ const handleLogin = (userData, token) => {
+    setUser(userData);
+    localStorage.setItem('nyumba_user', JSON.stringify(userData));
+    handleNavigate('home');
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem('nyumba_user');
+  };
+
   if (page === 'listings') {
     return <Listings onNavigate={handleNavigate} />;
   }
@@ -44,6 +60,10 @@ function App() {
     return <Admin onNavigate={handleNavigate} />;
   }
 
+  if (page === 'auth') {
+    return <Auth onNavigate={handleNavigate} onLogin={handleLogin} />;
+  }
+
   return (
     <div className="app">
 
@@ -54,6 +74,11 @@ function App() {
           <a href="#" onClick={() => handleNavigate('listings')}>Buy</a>
           <a href="#" onClick={() => handleNavigate('listings')}>Rent</a>
           <a href="#" onClick={() => handleNavigate('list')}>List Property</a>
+          {user ? (
+            <a href="#" onClick={handleLogout}>Logout</a>
+          ) : (
+            <a href="#" onClick={() => handleNavigate('auth')}>Login</a>
+          )}
         </div>
       </nav>
 
