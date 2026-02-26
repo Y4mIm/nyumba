@@ -1,3 +1,4 @@
+import Dashboard from './Dashboard';
 import Saved from './Saved';
 import React, { useState, useEffect } from 'react';
 import { fetchProperties } from './supabase';
@@ -62,9 +63,9 @@ function App() {
   }
 
   if (page === 'list') {
-    return <ListProperty onNavigate={handleNavigate} />;
+    return <ListProperty onNavigate={handleNavigate} user={user} />;
   }
-
+  
   if (page === 'admin') {
     return <Admin onNavigate={handleNavigate} />;
   }
@@ -77,6 +78,10 @@ function App() {
     return <Saved onNavigate={handleNavigate} user={user} token={token} />;
   }
 
+  if (page === 'dashboard') {
+    return <Dashboard onNavigate={handleNavigate} user={user} token={token} />;
+  }
+
   return (
     <div className="app">
 
@@ -87,9 +92,10 @@ function App() {
           <a href="#" onClick={() => handleNavigate('listings')}>Buy</a>
           <a href="#" onClick={() => handleNavigate('listings')}>Rent</a>
           <a href="#" onClick={() => handleNavigate('list')}>List Property</a>
-          {user ? (
+         {user ? (
     <>
       <a href="#" onClick={() => handleNavigate('saved')}>Saved</a>
+      <a href="#" onClick={() => handleNavigate('dashboard')}>Dashboard</a>
       <a href="#" onClick={handleLogout}>Logout</a>
     </>
   ) : (

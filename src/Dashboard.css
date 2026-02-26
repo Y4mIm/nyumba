@@ -1,0 +1,301 @@
+.dashboard-page {
+  background: #f9fafb;
+  min-height: 100vh;
+  font-family: Poppins, sans-serif;
+}
+
+.dashboard-header {
+  background: #065f46;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header-left h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.dashboard-header-left p {
+  color: #d1fae5;
+  font-size: 14px;
+}
+
+.add-property-btn {
+  padding: 12px 24px;
+  background: white;
+  color: #065f46;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: Poppins, sans-serif;
+  cursor: pointer;
+}
+
+.add-property-btn:hover {
+  background: #d1fae5;
+}
+
+.dashboard-stats {
+  display: flex;
+  gap: 20px;
+  padding: 25px 40px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dash-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+
+.dash-stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #065f46;
+}
+
+.dash-stat-label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.dashboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+.dashboard-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.dash-tab {
+  padding: 10px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Poppins, sans-serif;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.dash-tab.active {
+  background: #065f46;
+  color: white;
+  border-color: #065f46;
+}
+
+.dash-loading {
+  text-align: center;
+  color: #6b7280;
+  padding: 40px;
+}
+
+.dashboard-empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.dashboard-empty h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.dashboard-empty p {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+.empty-icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.dash-btn {
+  padding: 12px 28px;
+  background: #065f46;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Poppins, sans-serif;
+  cursor: pointer;
+}
+
+.dash-btn:hover {
+  background: #047857;
+}
+
+.dash-listings {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dash-card {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.dash-card-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background: #f0fdf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.dash-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.dash-card-info {
+  flex: 1;
+}
+
+.dash-card-top {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.dash-card-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.dash-card-info p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.dash-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dash-view-btn {
+  padding: 8px 18px;
+  background: #065f46;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: Poppins, sans-serif;
+  cursor: pointer;
+}
+
+.dash-view-btn:hover {
+  background: #047857;
+}
+
+.dash-delete-btn {
+  padding: 8px 18px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: Poppins, sans-serif;
+  cursor: pointer;
+}
+
+.dash-delete-btn:hover {
+  background: #dc2626;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge.rent {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge.sale {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge.approved {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .dashboard-stats {
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .dash-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dash-card-actions {
+    flex-direction: row;
+    width: 100%;
+  }
+}

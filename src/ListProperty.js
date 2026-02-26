@@ -3,7 +3,7 @@ import "./ListProperty.css";
 import { submitProperty, uploadImage } from "./supabase";
 
 
-function ListProperty({ onNavigate }) {
+function ListProperty({ onNavigate, user }) {
   const [formData, setFormData] = useState({
     title: "",
     type: "",
@@ -67,6 +67,7 @@ function ListProperty({ onNavigate }) {
       description: formData.description,
       features: formData.features,
       landlord: formData.landlord,
+      landlord_email: user ? user.email : null,
       phone: formData.phone,
       whatsapp: formData.whatsapp.replace("+", ""),
       emoji: "??",
