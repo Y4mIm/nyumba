@@ -1,26 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import './Listings.css';
-import { fetchProperties } from './supabase';
+import { fetchProperties, getSavedProperties, saveProperty, unsaveProperty } from './supabase';
 
-function Listings({ onNavigate }) {
+function Listings({ onNavigate, user, token }) {
   const [allProperties, setAllProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [city, setCity] = useState('All');
   const [type, setType] = useState('All');
   const [bedrooms, setBedrooms] = useState('All');
+  const [savedIds, setSavedIds] = useState([]);
 
   useEffect(() => {
     loadProperties();
-  }, []);
+    if (user) loadSaved();
+  }, [user]);
 
   const loadProperties = async () => {
     setLoading(true);
     const data = await fetchProperties();
-    if (Array.isArray(data)) {
-      setAllProperties(data);
-    }
+    if (Array.isArray(data)) setAllProperties(data);
     setLoading(false);
+  };
+
+  const loadSaved = async () => {
+    const ids = await getSavedProperties(user.id, token);
+    setSavedIds(ids);
+  };
+
+  const toggleSave = async (propertyId) => {
+    if (!user) {
+      onNavigate('auth');
+      return;
+    }
+    if (savedIds.includes(propertyId)) {
+      await unsaveProperty(user.id, propertyId, token);
+      setSavedIds(savedIds.filter(id => id !== propertyId));
+    } else {
+      await saveProperty(user.id, propertyId, token);
+      setSavedIds([...savedIds, propertyId]);
+    }
   };
 
   const filtered = allProperties.filter(p => {
@@ -41,6 +60,11 @@ function Listings({ onNavigate }) {
           <a href="#" onClick={() => onNavigate('listings')}>Buy</a>
           <a href="#" onClick={() => onNavigate('listings')}>Rent</a>
           <a href="#" onClick={() => onNavigate('list')}>List Property</a>
+          {user ? (
+            <a href="#" onClick={() => onNavigate('saved')}>Saved</a>
+          ) : (
+            <a href="#" onClick={() => onNavigate('auth')}>Login</a>
+          )}
         </div>
       </nav>
 
@@ -97,6 +121,12 @@ function Listings({ onNavigate }) {
                 ) : (
                   property.emoji
                 )}
+                <button
+                  className={"save-btn " + (savedIds.includes(property.id) ? "saved" : "")}
+                  onClick={() => toggleSave(property.id)}
+                >
+                  {savedIds.includes(property.id) ? "❤️" : "🤍"}
+                </button>
               </div>
               <div className="card-info">
                 <span className={`badge ${property.listing_type}`}>

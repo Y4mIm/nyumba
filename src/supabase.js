@@ -40,10 +40,47 @@ export const uploadImage = async (file) => {
     body: file
   });
   const result = await response.json();
-  console.log('Upload result:', result);
   if (response.ok) {
     return `${SUPABASE_URL}/storage/v1/object/public/property-images/${filename}`;
   }
   console.error('Upload failed:', result);
   return null;
+};
+
+export const getSavedProperties = async (userId, token) => {
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/saved_properties?user_id=eq.${userId}&select=property_id`, {
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  });
+  const data = await response.json();
+  return Array.isArray(data) ? data.map(d => d.property_id) : [];
+};
+
+export const saveProperty = async (userId, propertyId, token) => {
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/saved_properties`, {
+    method: 'POST',
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ user_id: userId, property_id: propertyId })
+  });
+  return response.ok;
+};
+
+export const unsaveProperty = async (userId, propertyId, token) => {
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/saved_properties?user_id=eq.${userId}&property_id=eq.${propertyId}`, {
+    method: 'DELETE',
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  });
+  return response.ok;
 };

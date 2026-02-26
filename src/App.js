@@ -1,3 +1,4 @@
+import Saved from './Saved';
 import React, { useState, useEffect } from 'react';
 import { fetchProperties } from './supabase';
 import './App.css';
@@ -7,6 +8,7 @@ import ListProperty from './ListProperty';
 import Admin from './Admin';
 import Auth from './Auth';
 
+
 function App() {
   const [page, setPage] = useState('home');
   const [selectedProperty, setSelectedProperty] = useState(null);
@@ -14,6 +16,9 @@ function App() {
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem('nyumba_user');
     return saved ? JSON.parse(saved) : null;
+  });
+  const [token, setToken] = useState(() => {
+    return localStorage.getItem('nyumba_token') || null;
   });
 
   useEffect(() => {
@@ -33,23 +38,27 @@ function App() {
     window.scrollTo(0, 0);
   };
 
- const handleLogin = (userData, token) => {
+  const handleLogin = (userData, userToken) => {
     setUser(userData);
+    setToken(userToken);
     localStorage.setItem('nyumba_user', JSON.stringify(userData));
+    localStorage.setItem('nyumba_token', userToken);
     handleNavigate('home');
   };
 
   const handleLogout = () => {
     setUser(null);
+    setToken(null);
     localStorage.removeItem('nyumba_user');
+    localStorage.removeItem('nyumba_token');
   };
 
   if (page === 'listings') {
-    return <Listings onNavigate={handleNavigate} />;
+    return <Listings onNavigate={handleNavigate} user={user} token={token} />;
   }
 
   if (page === 'detail' && selectedProperty) {
-    return <PropertyDetail property={selectedProperty} onNavigate={handleNavigate} />;
+    return <PropertyDetail property={selectedProperty} onNavigate={handleNavigate} user={user} token={token} />;
   }
 
   if (page === 'list') {
@@ -64,6 +73,10 @@ function App() {
     return <Auth onNavigate={handleNavigate} onLogin={handleLogin} />;
   }
 
+  if (page === 'saved') {
+    return <Saved onNavigate={handleNavigate} user={user} token={token} />;
+  }
+
   return (
     <div className="app">
 
@@ -75,10 +88,13 @@ function App() {
           <a href="#" onClick={() => handleNavigate('listings')}>Rent</a>
           <a href="#" onClick={() => handleNavigate('list')}>List Property</a>
           {user ? (
-            <a href="#" onClick={handleLogout}>Logout</a>
-          ) : (
-            <a href="#" onClick={() => handleNavigate('auth')}>Login</a>
-          )}
+    <>
+      <a href="#" onClick={() => handleNavigate('saved')}>Saved</a>
+      <a href="#" onClick={handleLogout}>Logout</a>
+    </>
+  ) : (
+    <a href="#" onClick={() => handleNavigate('auth')}>Login</a>
+  )}
         </div>
       </nav>
 
@@ -123,7 +139,9 @@ function App() {
             <span>🏘️</span><p>Flats</p>
           </div>
           <div className="category-card" onClick={() => handleNavigate('listings')}>
+          <div className="category-card" onClick={() => handleNavigate('listings')}>
             <span>🏗️</span><p>Under Construction</p>
+          </div>
           </div>
           <div className="category-card" onClick={() => handleNavigate('listings')}>
             <span>🏬</span><p>Commercial</p>
