@@ -23,14 +23,20 @@ function PropertyDetail({ property, onNavigate }) {
       </nav>
       <div className="breadcrumb">
         <span onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>Home</span>
-        <span> ï¿½ </span>
+        <span> › </span>
         <span onClick={() => onNavigate("listings")} style={{ cursor: "pointer" }}>Listings</span>
-        <span> ï¿½ </span>
+        <span> › </span>
         <span>{property.title}</span>
       </div>
       <div className="detail-container">
         <div className="detail-left">
-          <div className="detail-img">{property.emoji}</div>
+          <div className="detail-img">
+            {property.image_url ? (
+              <img src={property.image_url} alt={property.title} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "12px" }} />
+            ) : (
+              property.emoji
+            )}
+          </div>
           <div className="detail-info">
             <span className={"badge " + badge}>{label}</span>
             <h2>{property.title}</h2>

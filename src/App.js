@@ -131,7 +131,13 @@ function App() {
         <div className="listings">
           {properties.map(property => (
             <div className="card" key={property.id}>
-              <div className="card-img">{property.emoji}</div>
+              <div className="card-img">
+                {property.image_url ? (
+                  <img src={property.image_url} alt={property.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
+                ) : (
+                  property.emoji
+                )}
+              </div>
               <div className="card-info">
                 <span className={`badge ${property.listing_type}`}>
                   {property.listing_type === 'rent' ? 'For Rent' : 'For Sale'}
