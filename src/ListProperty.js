@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./ListProperty.css";
 import { submitProperty, uploadImage } from "./supabase";
 
-
 function ListProperty({ onNavigate, user }) {
   const [formData, setFormData] = useState({
     title: "",
@@ -40,9 +39,7 @@ function ListProperty({ onNavigate, user }) {
       setImage(file);
       setImagePreview(URL.createObjectURL(file));
     }
-  };
-
- 
+    };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

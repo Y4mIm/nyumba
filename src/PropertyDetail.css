@@ -1,110 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
 .detail-page {
-  background-color: #f9fafb;
+  background: #ffffff;
   min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
 }
 
 .breadcrumb {
-  padding: 15px 40px;
+  padding: 16px 60px;
   font-size: 13px;
-  color: #6b7280;
+  color: #9ca3af;
+  border-bottom: 1px solid #f3f4f6;
   background: white;
-  border-bottom: 1px solid #e5e7eb;
+}
+
+.breadcrumb span {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.breadcrumb span:hover {
+  color: #065f46;
 }
 
 .detail-container {
-  display: flex;
-  gap: 30px;
-  padding: 30px 40px 60px;
-  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  max-width: 1200px;
   margin: 0 auto;
-  align-items: flex-start;
+  padding: 40px 60px 80px;
 }
 
 .detail-left {
-  flex: 2;
+  min-width: 0;
 }
 
 .detail-img {
   width: 100%;
-  height: 350px;
-  background-color: #d1fae5;
-  border-radius: 12px;
+  height: 480px;
+  background: #f0fdf4;
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 100px;
-  margin-bottom: 25px;
-  border: 1px solid #e5e7eb;
+  font-size: 80px;
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+
+.detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
 }
 
 .detail-info {
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
-  border: 1px solid #e5e7eb;
+  padding: 0;
+}
+
+.detail-info .badge {
+  margin-bottom: 16px;
 }
 
 .detail-info h2 {
-  font-size: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
   font-weight: 700;
   color: #111827;
-  margin: 10px 0 8px;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
 .detail-location {
-  font-size: 14px;
+  font-size: 15px;
   color: #6b7280;
   margin-bottom: 8px;
 }
 
 .detail-price {
-  font-size: 22px;
-  font-weight: 700;
-  color: #065f46;
-  margin-bottom: 20px;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  color: #065f46 !important;
+  margin-bottom: 28px !important;
+  letter-spacing: -0.5px;
+  font-family: 'Playfair Display', serif;
 }
 
 .detail-specs {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  padding: 20px 0;
-  border-top: 1px solid #f3f4f6;
-  border-bottom: 1px solid #f3f4f6;
-  margin-bottom: 20px;
+  margin-bottom: 36px;
 }
 
 .spec {
-  background: #f0fdf4;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #065f46;
+  background: #f9fafb;
+  border: 1.5px solid #e5e7eb;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
 }
 
 .detail-description {
-  margin-bottom: 25px;
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .detail-description h3 {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   color: #111827;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .detail-description p {
-  font-size: 14px;
+  font-size: 15px;
   color: #4b5563;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .detail-features h3 {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   color: #111827;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .features-grid {
@@ -115,169 +140,231 @@
 
 .feature-item {
   background: #f0fdf4;
+  border: 1.5px solid #d1fae5;
   color: #065f46;
-  padding: 6px 14px;
-  border-radius: 20px;
+  padding: 8px 16px;
+  border-radius: 50px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
+/* CONTACT CARD */
 .detail-right {
-  flex: 1;
-  position: sticky;
-  top: 80px;
+  position: relative;
 }
 
 .contact-card {
   background: white;
-  border-radius: 12px;
-  padding: 25px;
-  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 32px;
+  border: 1.5px solid #e5e7eb;
+  position: sticky;
+  top: 90px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
   margin-bottom: 20px;
 }
 
 .contact-card h3 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: #111827;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .landlord-info {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
   border-bottom: 1px solid #f3f4f6;
 }
 
 .landlord-avatar {
-  font-size: 40px;
-  background: #f0fdf4;
-  width: 55px;
-  height: 55px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
+  background: #065f46;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
 }
 
 .landlord-name {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: #111827;
+  margin-bottom: 3px;
 }
 
 .landlord-type {
-  font-size: 12px;
-  color: #6b7280;
-  margin-top: 3px;
+  font-size: 13px;
+  color: #9ca3af;
 }
 
 .whatsapp-btn {
   display: block;
   width: 100%;
-  padding: 13px;
-  background-color: #25d366;
+  padding: 14px;
+  background: #25d366;
   color: white;
-  text-align: center;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 14px;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: all 0.2s;
 }
 
 .whatsapp-btn:hover {
-  background-color: #1ebe57;
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37,211,102,0.3);
 }
 
 .phone-btn {
   display: block;
   width: 100%;
-  padding: 13px;
-  background-color: #065f46;
-  color: white;
-  text-align: center;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 14px;
+  padding: 14px;
+  background: white;
+  color: #065f46;
+  border: 1.5px solid #065f46;
+  border-radius: 14px;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
 }
 
 .phone-btn:hover {
-  background-color: #047857;
+  background: #065f46;
+  color: white;
 }
 
 .contact-note {
+  text-align: center;
   font-size: 12px;
   color: #9ca3af;
-  text-align: center;
+  margin-top: 14px;
 }
 
+/* SAFETY CARD */
 .safety-card {
   background: #fffbeb;
-  border-radius: 12px;
-  padding: 20px;
-  border: 1px solid #fde68a;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1.5px solid #fde68a;
+  position: sticky;
+  top: 420px;
 }
 
 .safety-card h3 {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: #92400e;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .safety-card ul {
-  padding-left: 18px;
+  list-style: none;
+  padding: 0;
 }
 
 .safety-card ul li {
   font-size: 13px;
   color: #78350f;
-  margin-bottom: 8px;
-  line-height: 1.5;
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-  .breadcrumb {
-    padding: 12px 20px;
-  }
-
-  .detail-container {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .detail-img {
-    height: 250px;
-    font-size: 70px;
-  }
-
-  .detail-right {
-    position: static;
-    width: 100%;
-  }
-
-  .detail-info h2 {
-    font-size: 20px;
-  }
-
-  .detail-price {
-    font-size: 18px;
-  }
+.safety-card ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #f59e0b;
+  font-weight: 700;
 }
+
+.badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.rent {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge.sale {
+  background: #fef3c7;
+  color: #92400e;
+}
+
 .nav-link {
-  color: #d1fae5;
-  margin-left: 25px;
+  color: #4b5563;
+  margin-left: 8px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.2s;
 }
 
 .nav-link:hover {
-  color: white;
+  background: #f0fdf4;
+  color: #065f46;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: 14px 20px;
+  }
+
+  .detail-container {
+    grid-template-columns: 1fr;
+    padding: 24px 20px 60px;
+    gap: 30px;
+  }
+
+  .detail-img {
+    height: 280px;
+    border-radius: 16px;
+  }
+
+  .detail-info h2 {
+    font-size: 26px;
+  }
+
+  .detail-price {
+    font-size: 22px !important;
+  }
+
+  .contact-card {
+    position: relative;
+    top: 0;
+  }
+
+  .safety-card {
+    position: relative;
+    top: 0;
+  }
 }

@@ -1,23 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
 .admin-login {
   min-height: 100vh;
   background: #f9fafb;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Poppins', sans-serif;
 }
 
 .login-card {
   background: white;
-  border-radius: 12px;
-  padding: 40px;
+  border-radius: 24px;
+  padding: 48px;
   width: 100%;
-  max-width: 400px;
-  border: 1px solid #e5e7eb;
+  max-width: 420px;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
   text-align: center;
 }
 
 .login-card h2 {
-  font-size: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
   font-weight: 700;
   color: #065f46;
   margin-bottom: 8px;
@@ -26,50 +31,56 @@
 .login-card p {
   font-size: 14px;
   color: #6b7280;
-  margin-bottom: 25px;
+  margin-bottom: 32px;
 }
 
 .login-card form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .login-card input {
-  padding: 12px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+  padding: 13px 16px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
   font-size: 14px;
-  font-family: Poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;
   outline: none;
+  transition: border-color 0.2s;
 }
 
 .login-card input:focus {
   border-color: #065f46;
+  box-shadow: 0 0 0 3px rgba(6,95,70,0.08);
 }
 
 .login-card button {
-  padding: 12px;
+  padding: 14px;
   background: #065f46;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   font-size: 15px;
   font-weight: 600;
-  font-family: Poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .login-card button:hover {
   background: #047857;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(6,95,70,0.2);
 }
 
 .back-link {
   display: block;
-  margin-top: 15px;
+  margin-top: 18px;
   font-size: 13px;
-  color: #6b7280;
+  color: #9ca3af;
   cursor: pointer;
+  transition: color 0.2s;
 }
 
 .back-link:hover {
@@ -79,90 +90,126 @@
 .admin-page {
   background: #f9fafb;
   min-height: 100vh;
-  font-family: Poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .admin-navbar {
   background: #065f46;
-  padding: 16px 40px;
+  padding: 0 60px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
 .admin-navbar h1 {
   color: white;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .admin-nav-right {
   display: flex;
-  gap: 20px;
+  gap: 8px;
+  align-items: center;
 }
 
 .view-site {
-  color: #d1fae5;
+  color: #a7f3d0;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s;
 }
 
 .view-site:hover {
+  background: rgba(255,255,255,0.1);
   color: white;
 }
 
 .logout {
-  color: #fca5a5;
+  color: white;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.15);
+  transition: all 0.2s;
 }
 
 .logout:hover {
-  color: white;
+  background: rgba(255,255,255,0.25);
 }
 
 .admin-stats {
   display: flex;
-  gap: 20px;
-  padding: 25px 40px;
+  gap: 24px;
+  padding: 30px 60px;
   background: white;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .admin-stat {
+  background: #f9fafb;
+  border: 1.5px solid #f3f4f6;
+  border-radius: 16px;
+  padding: 20px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 120px;
+  min-width: 130px;
+  transition: all 0.2s;
+}
+
+.admin-stat:hover {
+  border-color: #065f46;
+  background: #f0fdf4;
 }
 
 .admin-stat-number {
-  font-size: 32px;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
   font-weight: 700;
   color: #065f46;
+  letter-spacing: -1px;
 }
 
 .admin-stat-label {
-  font-size: 13px;
-  color: #6b7280;
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 500;
+  margin-top: 4px;
+  text-align: center;
 }
 
 .admin-tabs {
   display: flex;
-  gap: 10px;
-  padding: 20px 40px 0;
+  gap: 8px;
+  padding: 24px 60px 0;
+  width: fit-content;
 }
 
 .tab-btn {
-  padding: 10px 20px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
+  padding: 10px 22px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 50px;
   background: white;
   font-size: 14px;
-  font-weight: 500;
-  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
   color: #6b7280;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  border-color: #065f46;
+  color: #065f46;
 }
 
 .tab-btn.active {
@@ -172,38 +219,53 @@
 }
 
 .admin-listings {
-  padding: 20px 40px 60px;
+  padding: 24px 60px 80px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 }
 
 .loading-text {
   text-align: center;
-  padding: 40px;
+  padding: 60px;
   color: #6b7280;
   font-size: 15px;
 }
 
 .admin-card {
   background: white;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  padding: 20px;
+  border-radius: 16px;
+  border: 1.5px solid #f3f4f6;
+  padding: 22px 24px;
   display: flex;
   gap: 20px;
   align-items: flex-start;
+  transition: all 0.2s;
+}
+
+.admin-card:hover {
+  border-color: #e5e7eb;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 
 .admin-emoji {
-  font-size: 40px;
+  font-size: 36px;
   background: #f0fdf4;
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.admin-emoji img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .admin-card-info {
@@ -212,15 +274,15 @@
 
 .admin-card-top {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 8px;
 }
 
 .admin-card-info h3 {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   color: #111827;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .admin-card-info p {
@@ -230,7 +292,7 @@
 }
 
 .admin-landlord {
-  font-weight: 500;
+  font-weight: 600 !important;
   color: #065f46 !important;
 }
 
@@ -238,26 +300,27 @@
   font-size: 12px !important;
   color: #9ca3af !important;
   margin-top: 6px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .admin-card-actions {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-width: 100px;
+  min-width: 110px;
 }
 
 .approve-btn {
-  padding: 8px 16px;
+  padding: 10px 18px;
   background: #065f46;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 13px;
   font-weight: 600;
-  font-family: Poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .approve-btn:hover {
@@ -265,44 +328,49 @@
 }
 
 .reject-btn {
-  padding: 8px 16px;
-  background: #f59e0b;
-  color: white;
-  border: none;
-  border-radius: 6px;
+  padding: 10px 18px;
+  background: white;
+  color: #f59e0b;
+  border: 1.5px solid #f59e0b;
+  border-radius: 10px;
   font-size: 13px;
   font-weight: 600;
-  font-family: Poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .reject-btn:hover {
-  background: #d97706;
+  background: #f59e0b;
+  color: white;
 }
 
 .delete-btn {
-  padding: 8px 16px;
-  background: #ef4444;
-  color: white;
-  border: none;
-  border-radius: 6px;
+  padding: 10px 18px;
+  background: white;
+  color: #ef4444;
+  border: 1.5px solid #ef4444;
+  border-radius: 10px;
   font-size: 13px;
   font-weight: 600;
-  font-family: Poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .delete-btn:hover {
-  background: #dc2626;
+  background: #ef4444;
+  color: white;
 }
 
 .badge {
   display: inline-block;
-  padding: 3px 10px;
-  border-radius: 4px;
+  padding: 4px 12px;
+  border-radius: 20px;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .badge.rent {
@@ -317,11 +385,12 @@
 
 .status-badge {
   display: inline-block;
-  padding: 3px 10px;
-  border-radius: 4px;
+  padding: 4px 12px;
+  border-radius: 20px;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .status-badge.pending {
@@ -336,20 +405,22 @@
 
 @media (max-width: 768px) {
   .admin-navbar {
-    padding: 15px 20px;
+    padding: 0 20px;
   }
 
   .admin-stats {
     padding: 20px;
-    gap: 15px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .admin-tabs {
-    padding: 15px 20px 0;
+    padding: 16px 20px 0;
   }
 
   .admin-listings {
-    padding: 15px 20px 40px;
+    padding: 16px 20px 60px;
   }
 
   .admin-card {
@@ -359,5 +430,12 @@
   .admin-card-actions {
     flex-direction: row;
     width: 100%;
+  }
+
+  .approve-btn,
+  .reject-btn,
+  .delete-btn {
+    flex: 1;
+    text-align: center;
   }
 }
