@@ -61,11 +61,12 @@ function Dashboard({ onNavigate, user, token }) {
     <div className="dashboard-page">
       <nav className="navbar">
         <h1 onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>Nyumba</h1>
-        <div className="navbar-links">
-          <span onClick={() => onNavigate("home")} className="nav-link">Home</span>
-          <span onClick={() => onNavigate("listings")} className="nav-link">Listings</span>
-          <span onClick={() => onNavigate("list")} className="nav-link">Add Property</span>
-        </div>
+       <div className="navbar-links">
+  <span onClick={() => onNavigate("home")} className="nav-link">Home</span>
+  <span onClick={() => onNavigate("listings")} className="nav-link">Browse</span>
+  <span onClick={() => onNavigate("saved")} className="nav-link">Saved</span>
+  <span onClick={() => onNavigate("list")} className="nav-link">Add Property</span>
+</div>
       </nav>
 
       <div className="dashboard-header">
@@ -136,7 +137,7 @@ function Dashboard({ onNavigate, user, token }) {
                   <h3>{property.title}</h3>
                   <p>{property.location}</p>
                   <p>{property.price_label}</p>
-                  <p>{property.bedrooms} bed · {property.bathrooms} bath</p>
+                  <p>{property.bedrooms} bed ï¿½ {property.bathrooms} bath</p>
                 </div>
                 <div className="dash-card-actions">
                   <button className="dash-view-btn" onClick={() => onNavigate("detail", property)}>View</button>

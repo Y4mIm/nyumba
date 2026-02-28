@@ -87,20 +87,18 @@ function App() {
       <nav className="navbar">
         <h1>Nyumba 🏠</h1>
         <div className="navbar-links">
-          <a href="#" onClick={() => handleNavigate('home')}>Home</a>
-          <a href="#" onClick={() => handleNavigate('listings')}>Buy</a>
-          <a href="#" onClick={() => handleNavigate('listings')}>Rent</a>
-          <a href="#" onClick={() => handleNavigate('list')}>List Property</a>
-          {user ? (
-            <>
-              <a href="#" onClick={() => handleNavigate('saved')}>Saved</a>
-              <a href="#" onClick={() => handleNavigate('dashboard')}>Dashboard</a>
-              <a href="#" onClick={handleLogout}>Logout</a>
-            </>
-          ) : (
-            <a href="#" onClick={() => handleNavigate('auth')}>Login</a>
-          )}
-        </div>
+  <a href="#" onClick={() => handleNavigate('listings')}>Buy</a>
+  <a href="#" onClick={() => handleNavigate('listings')}>Rent</a>
+  <a href="#" onClick={() => handleNavigate('list')}>List Property</a>
+  {user ? (
+    <>
+      <a href="#" onClick={() => handleNavigate('dashboard')}>Dashboard</a>
+      <a href="#" onClick={handleLogout}>Logout</a>
+    </>
+  ) : (
+    <a href="#" onClick={() => handleNavigate('auth')}>Login</a>
+  )}
+</div>
       </nav>
 
       <div className="hero">
@@ -303,9 +301,44 @@ function App() {
       </div>
 
       <footer className="footer">
-        <p>© 2026 Nyumba · Built for Malawi 🇲🇼 · Blantyre & Lilongwe</p>
-        <p className="admin-link" onClick={() => handleNavigate('admin')}>Admin</p>
-      </footer>
+  <div className="footer-grid">
+    <div className="footer-brand">
+      <h3>Nyumba 🏠</h3>
+      <p>The home for property in Malawi. Find houses, apartments and flats for rent and sale in Blantyre and Lilongwe.</p>
+    </div>
+    <div className="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li onClick={() => handleNavigate('listings')}>Browse Properties</li>
+        <li onClick={() => handleNavigate('list')}>List Your Property</li>
+        <li onClick={() => handleNavigate('listings')}>Properties for Rent</li>
+        <li onClick={() => handleNavigate('listings')}>Properties for Sale</li>
+      </ul>
+    </div>
+    <div className="footer-col">
+      <h4>Cities</h4>
+      <ul>
+        <li onClick={() => handleNavigate('listings')}>Blantyre</li>
+        <li onClick={() => handleNavigate('listings')}>Lilongwe</li>
+        <li onClick={() => handleNavigate('listings')}>Limbe</li>
+        <li onClick={() => handleNavigate('listings')}>Area 47</li>
+      </ul>
+    </div>
+    <div className="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li>About Nyumba</li>
+        <li>How It Works</li>
+        <li>Safety Tips</li>
+        <li onClick={() => handleNavigate('auth')}>Create Account</li>
+      </ul>
+    </div>
+  </div>
+  <div className="footer-bottom">
+    <p>© 2026 Nyumba · Built for Malawi 🇲🇼 · Blantyre & Lilongwe</p>
+    <p className="admin-link" onClick={() => handleNavigate('admin')}>Admin</p>
+  </div>
+</footer>
 
     </div>
   );
