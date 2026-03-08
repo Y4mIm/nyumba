@@ -1,35 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
-
 .list-page {
   background: #f9fafb;
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
 }
 
 .list-header {
-  background: #065f46;
-  padding: 50px 60px;
+  background: #111827;
+  padding: 50px 40px;
   color: white;
   text-align: center;
 }
 
 .list-header h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'GTWalsheim', sans-serif;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 10px;
   letter-spacing: -0.5px;
+  color: white;
 }
 
 .list-header p {
   font-size: 15px;
-  color: #a7f3d0;
+  color: #9ca3af;
 }
 
 .form-container {
   max-width: 780px;
   margin: 0 auto;
-  padding: 50px 20px 80px;
+  padding: 50px 20px 100px;
 }
 
 .form-section {
@@ -71,7 +70,7 @@
   border: 1.5px solid #e5e7eb;
   border-radius: 12px;
   font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   color: #1a1a1a;
   background: white;
   outline: none;
@@ -82,8 +81,8 @@
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: #065f46;
-  box-shadow: 0 0 0 3px rgba(6,95,70,0.08);
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17,24,39,0.06);
 }
 
 .form-group textarea {
@@ -117,8 +116,8 @@
 }
 
 .image-upload-area:hover {
-  border-color: #065f46;
-  background: #f0fdf4;
+  border-color: #111827;
+  background: #f3f4f6;
 }
 
 .image-upload-label {
@@ -170,7 +169,7 @@
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
 }
 
 .remove-image:hover {
@@ -196,22 +195,22 @@
 .submit-btn {
   width: 100%;
   padding: 18px;
-  background: #065f46;
+  background: #111827;
   color: white;
   border: none;
   border-radius: 14px;
   font-size: 16px;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
   letter-spacing: 0.3px;
 }
 
 .submit-btn:hover {
-  background: #047857;
+  background: #374151;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(6,95,70,0.25);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
 .submit-btn:disabled {
@@ -247,9 +246,9 @@
 }
 
 .success-card h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'GTWalsheim', sans-serif;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
   color: #111827;
   margin-bottom: 14px;
 }
@@ -270,24 +269,23 @@
 .success-btn {
   width: 100%;
   padding: 15px;
-  background: #065f46;
+  background: #111827;
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 15px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .success-btn:hover {
-  background: #047857;
+  background: #374151;
 }
 
 .nav-link {
-  color: #4b5563;
-  margin-left: 8px;
+  color: #374151;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -297,11 +295,15 @@
 }
 
 .nav-link:hover {
-  background: #f0fdf4;
-  color: #065f46;
+  background: #f3f4f6;
+  color: #111827;
 }
 
-/* RESPONSIVE */
+/* BOTTOM NAVIGATION - MOBILE ONLY */
+.bottom-nav {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .list-header {
     padding: 40px 20px;
@@ -312,7 +314,7 @@
   }
 
   .form-container {
-    padding: 30px 16px 60px;
+    padding: 30px 16px 100px;
   }
 
   .form-section {
@@ -325,5 +327,63 @@
 
   .success-card {
     padding: 40px 24px;
+  }
+
+  /* BOTTOM NAV */
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #f3f4f6;
+    z-index: 100;
+    padding: 8px 0 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    padding: 6px 4px;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+
+  .bottom-nav-item svg {
+    width: 22px;
+    height: 22px;
+    stroke: #9ca3af;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s;
+  }
+
+  .bottom-nav-item span:last-child {
+    font-size: 10px;
+    font-weight: 600;
+    color: #9ca3af;
+    letter-spacing: 0.3px;
+    font-family: 'GTWalsheim', sans-serif;
+  }
+
+  .bottom-nav-item.active svg {
+    stroke: #111827;
+  }
+
+  .bottom-nav-item.active span:last-child {
+    color: #111827;
+    font-weight: 700;
+  }
+
+  .bottom-nav-item.active {
+    background: #f3f4f6;
   }
 }

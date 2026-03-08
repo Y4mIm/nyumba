@@ -1,58 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
-
 .dashboard-page {
   background: #f9fafb;
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
 }
 
 .dashboard-header {
-  background: #065f46;
-  padding: 40px 60px;
+  background: #111827;
+  padding: 40px 0;
+}
+
+.dashboard-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .dashboard-header-left h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'GTWalsheim', sans-serif;
   color: white;
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 6px;
   letter-spacing: -0.5px;
 }
 
 .dashboard-header-left p {
-  color: #a7f3d0;
+  color: #9ca3af;
   font-size: 14px;
 }
 
 .add-property-btn {
   padding: 13px 26px;
   background: white;
-  color: #065f46;
+  color: #111827;
   border: none;
-  border-radius: 50px;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .add-property-btn:hover {
-  background: #f0fdf4;
+  background: #f3f4f6;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .dashboard-stats {
-  display: flex;
-  gap: 24px;
-  padding: 30px 60px;
   background: white;
   border-bottom: 1px solid #f3f4f6;
+  padding: 30px 0;
+}
+
+.dashboard-stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  gap: 24px;
 }
 
 .dash-stat {
@@ -68,15 +78,15 @@
 }
 
 .dash-stat:hover {
-  border-color: #065f46;
-  background: #f0fdf4;
+  border-color: #111827;
+  background: #f3f4f6;
 }
 
 .dash-stat-number {
-  font-family: 'Playfair Display', serif;
+  font-family: 'GTWalsheim', sans-serif;
   font-size: 36px;
-  font-weight: 700;
-  color: #065f46;
+  font-weight: 800;
+  color: #111827;
   letter-spacing: -1px;
 }
 
@@ -89,9 +99,9 @@
 }
 
 .dashboard-container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 36px 20px 80px;
+  padding: 36px 40px 100px;
 }
 
 .dashboard-tabs {
@@ -111,7 +121,7 @@
   background: transparent;
   font-size: 14px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   color: #6b7280;
   transition: all 0.2s;
@@ -119,7 +129,7 @@
 
 .dash-tab.active {
   background: white;
-  color: #065f46;
+  color: #111827;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
@@ -158,21 +168,21 @@
 
 .dash-btn {
   padding: 13px 32px;
-  background: #065f46;
+  background: #111827;
   color: white;
   border: none;
-  border-radius: 50px;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .dash-btn:hover {
-  background: #047857;
+  background: #374151;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(6,95,70,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .dash-listings {
@@ -201,7 +211,7 @@
   width: 88px;
   height: 88px;
   border-radius: 12px;
-  background: #f0fdf4;
+  background: #f3f4f6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -248,19 +258,19 @@
 
 .dash-view-btn {
   padding: 9px 22px;
-  background: #065f46;
+  background: #111827;
   color: white;
   border: none;
   border-radius: 10px;
   font-size: 13px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .dash-view-btn:hover {
-  background: #047857;
+  background: #374151;
 }
 
 .dash-delete-btn {
@@ -271,7 +281,7 @@
   border-radius: 10px;
   font-size: 13px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -322,7 +332,7 @@
 }
 
 .nav-link {
-  color: #d1fae5;
+  color: #374151;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -332,27 +342,32 @@
 }
 
 .nav-link:hover {
-  background: rgba(255,255,255,0.1);
-  color: white;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* BOTTOM NAVIGATION - MOBILE ONLY */
+.bottom-nav {
+  display: none;
 }
 
 @media (max-width: 768px) {
-  .dashboard-header {
+  .dashboard-header-inner {
     flex-direction: column;
     gap: 16px;
-    padding: 28px 20px;
     text-align: center;
+    padding: 0 20px;
   }
 
-  .dashboard-stats {
-    padding: 20px;
+  .dashboard-stats-inner {
+    padding: 0 20px;
     gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .dashboard-container {
-    padding: 24px 16px 60px;
+    padding: 24px 16px 100px;
   }
 
   .dash-card {
@@ -369,5 +384,63 @@
   .dash-delete-btn {
     flex: 1;
     text-align: center;
+  }
+
+  /* BOTTOM NAV */
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #f3f4f6;
+    z-index: 100;
+    padding: 8px 0 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    padding: 6px 4px;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+
+  .bottom-nav-item svg {
+    width: 22px;
+    height: 22px;
+    stroke: #9ca3af;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s;
+  }
+
+  .bottom-nav-item span:last-child {
+    font-size: 10px;
+    font-weight: 600;
+    color: #9ca3af;
+    letter-spacing: 0.3px;
+    font-family: 'GTWalsheim', sans-serif;
+  }
+
+  .bottom-nav-item.active svg {
+    stroke: #111827;
+  }
+
+  .bottom-nav-item.active span:last-child {
+    color: #111827;
+    font-weight: 700;
+  }
+
+  .bottom-nav-item.active {
+    background: #f3f4f6;
   }
 }

@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
-
 .auth-page {
   background: #f9fafb;
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
 }
 
 .auth-container {
@@ -25,9 +23,9 @@
 }
 
 .auth-card h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'GTWalsheim', sans-serif;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
   color: #111827;
   margin-bottom: 8px;
   text-align: center;
@@ -57,7 +55,7 @@
   background: transparent;
   font-size: 14px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   color: #6b7280;
   transition: all 0.2s;
@@ -65,7 +63,7 @@
 
 .auth-tab.active {
   background: white;
-  color: #065f46;
+  color: #111827;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
@@ -110,7 +108,7 @@
   border: 1.5px solid #e5e7eb;
   border-radius: 12px;
   font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   color: #1a1a1a;
   background: white;
   outline: none;
@@ -120,20 +118,20 @@
 
 .auth-form-group input:focus,
 .auth-form-group select:focus {
-  border-color: #065f46;
-  box-shadow: 0 0 0 3px rgba(6,95,70,0.08);
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17,24,39,0.06);
 }
 
 .auth-btn {
   width: 100%;
   padding: 14px;
-  background: #065f46;
+  background: #111827;
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 15px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   margin-top: 8px;
   transition: all 0.2s;
@@ -141,9 +139,9 @@
 }
 
 .auth-btn:hover {
-  background: #047857;
+  background: #374151;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(6,95,70,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .auth-btn:disabled {
@@ -161,7 +159,7 @@
 }
 
 .auth-switch span {
-  color: #065f46;
+  color: #111827;
   font-weight: 600;
   cursor: pointer;
 }
@@ -196,6 +194,11 @@
   z-index: 1;
 }
 
+/* BOTTOM NAVIGATION - MOBILE ONLY */
+.bottom-nav {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .auth-card {
     padding: 32px 24px;
@@ -205,5 +208,63 @@
     padding: 40px 16px;
     align-items: flex-start;
     padding-top: 40px;
+  }
+
+  /* BOTTOM NAV */
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #f3f4f6;
+    z-index: 100;
+    padding: 8px 0 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    padding: 6px 4px;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+
+  .bottom-nav-item svg {
+    width: 22px;
+    height: 22px;
+    stroke: #9ca3af;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s;
+  }
+
+  .bottom-nav-item span:last-child {
+    font-size: 10px;
+    font-weight: 600;
+    color: #9ca3af;
+    letter-spacing: 0.3px;
+    font-family: 'GTWalsheim', sans-serif;
+  }
+
+  .bottom-nav-item.active svg {
+    stroke: #111827;
+  }
+
+  .bottom-nav-item.active span:last-child {
+    color: #111827;
+    font-weight: 700;
+  }
+
+  .bottom-nav-item.active {
+    background: #f3f4f6;
   }
 }

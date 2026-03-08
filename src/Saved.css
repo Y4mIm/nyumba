@@ -1,34 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
-
 .saved-page {
   background: #f9fafb;
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
 }
 
 .saved-header {
-  background: #065f46;
-  padding: 50px 60px;
+  background: #111827;
+  padding: 50px 40px;
   color: white;
 }
 
+.saved-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .saved-header h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'GTWalsheim', sans-serif;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 8px;
   letter-spacing: -0.5px;
+  color: white;
 }
 
 .saved-header p {
   font-size: 15px;
-  color: #a7f3d0;
+  color: #9ca3af;
 }
 
 .saved-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 50px 20px 80px;
+  padding: 50px 40px 100px;
 }
 
 .saved-loading {
@@ -52,9 +56,9 @@
 }
 
 .saved-empty h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'GTWalsheim', sans-serif;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 800;
   color: #111827;
   margin-bottom: 12px;
 }
@@ -71,21 +75,21 @@
 
 .browse-btn {
   padding: 14px 36px;
-  background: #065f46;
+  background: #111827;
   color: white;
   border: none;
-  border-radius: 50px;
+  border-radius: 12px;
   font-size: 15px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .browse-btn:hover {
-  background: #047857;
+  background: #374151;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(6,95,70,0.2);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
 .saved-grid {
@@ -96,7 +100,7 @@
 
 .card {
   background: white;
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid #f3f4f6;
   transition: all 0.25s;
@@ -111,7 +115,7 @@
 
 .card-img {
   height: 220px;
-  background: #f0fdf4;
+  background: #f3f4f6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,23 +184,24 @@
   width: 100%;
   padding: 12px;
   background: white;
-  color: #065f46;
-  border: 1.5px solid #065f46;
-  border-radius: 12px;
+  color: #111827;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
   font-size: 14px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GTWalsheim', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .view-btn:hover {
-  background: #065f46;
+  background: #111827;
   color: white;
+  border-color: #111827;
 }
 
 .nav-link {
-  color: #d1fae5;
+  color: #374151;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -206,8 +211,13 @@
 }
 
 .nav-link:hover {
-  background: rgba(255,255,255,0.1);
-  color: white;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* BOTTOM NAVIGATION - MOBILE ONLY */
+.bottom-nav {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -220,11 +230,69 @@
   }
 
   .saved-container {
-    padding: 30px 16px 60px;
+    padding: 30px 16px 100px;
   }
 
   .saved-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  /* BOTTOM NAV */
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #f3f4f6;
+    z-index: 100;
+    padding: 8px 0 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    padding: 6px 4px;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+
+  .bottom-nav-item svg {
+    width: 22px;
+    height: 22px;
+    stroke: #9ca3af;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s;
+  }
+
+  .bottom-nav-item span:last-child {
+    font-size: 10px;
+    font-weight: 600;
+    color: #9ca3af;
+    letter-spacing: 0.3px;
+    font-family: 'GTWalsheim', sans-serif;
+  }
+
+  .bottom-nav-item.active svg {
+    stroke: #111827;
+  }
+
+  .bottom-nav-item.active span:last-child {
+    color: #111827;
+    font-weight: 700;
+  }
+
+  .bottom-nav-item.active {
+    background: #f3f4f6;
   }
 }

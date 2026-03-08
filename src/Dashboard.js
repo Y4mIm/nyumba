@@ -4,7 +4,23 @@ import "./Dashboard.css";
 const SUPABASE_URL = "https://zjeelyapynksqjkwynik.supabase.co";
 const SUPABASE_KEY = "sb_publishable_aC-v7-herXgYLMJ0YEgXUQ_0rAxdzBe";
 
-function Dashboard({ onNavigate, user, token }) {
+const HomeIcon = () => (
+  <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+);
+const SearchIcon = () => (
+  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+);
+const PlusIcon = () => (
+  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+);
+const HeartIcon = () => (
+  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+);
+const UserIcon = () => (
+  <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+);
+
+function Dashboard({ onNavigate, onBack, user, token, currentPage }) {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("all");
@@ -47,7 +63,9 @@ function Dashboard({ onNavigate, user, token }) {
     return (
       <div className="dashboard-page">
         <nav className="navbar">
-          <h1 onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>Nyumba</h1>
+          <div className="navbar-inner">
+            <h1 onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>Nyumba</h1>
+          </div>
         </nav>
         <div className="dashboard-empty">
           <h3>Please log in to view your dashboard</h3>
@@ -59,38 +77,58 @@ function Dashboard({ onNavigate, user, token }) {
 
   return (
     <div className="dashboard-page">
+
       <nav className="navbar">
-        <h1 onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>Nyumba</h1>
-       <div className="navbar-links">
-  <span onClick={() => onNavigate("home")} className="nav-link">Home</span>
-  <span onClick={() => onNavigate("listings")} className="nav-link">Browse</span>
-  <span onClick={() => onNavigate("saved")} className="nav-link">Saved</span>
-  <span onClick={() => onNavigate("list")} className="nav-link">Add Property</span>
-</div>
+        <div className="navbar-inner">
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <button onClick={onBack} style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              fontSize: "20px",
+              color: "#111827",
+              padding: "5px 12px",
+              borderRadius: "10px",
+              lineHeight: 1,
+              fontWeight: "600"
+            }}>&#8592;</button>
+            <h1 onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>Nyumba</h1>
+          </div>
+          <div className="navbar-links">
+            <span onClick={() => onNavigate("home")} className="nav-link">Home</span>
+            <span onClick={() => onNavigate("listings")} className="nav-link">Browse</span>
+            <span onClick={() => onNavigate("saved")} className="nav-link">Saved</span>
+            <span onClick={() => onNavigate("list")} className="nav-link">Add Property</span>
+          </div>
+        </div>
       </nav>
 
       <div className="dashboard-header">
-        <div className="dashboard-header-left">
-          <h2>My Dashboard</h2>
-          <p>Welcome back, {user.email}</p>
+        <div className="dashboard-header-inner">
+          <div className="dashboard-header-left">
+            <h2>My Dashboard</h2>
+            <p>Welcome back, {user.email}</p>
+          </div>
+          <button className="add-property-btn" onClick={() => onNavigate("list")}>
+            + Add New Property
+          </button>
         </div>
-        <button className="add-property-btn" onClick={() => onNavigate("list")}>
-          + Add New Property
-        </button>
       </div>
 
       <div className="dashboard-stats">
-        <div className="dash-stat">
-          <span className="dash-stat-number">{properties.length}</span>
-          <span className="dash-stat-label">Total Listings</span>
-        </div>
-        <div className="dash-stat">
-          <span className="dash-stat-number">{pendingCount}</span>
-          <span className="dash-stat-label">Pending Review</span>
-        </div>
-        <div className="dash-stat">
-          <span className="dash-stat-number">{approvedCount}</span>
-          <span className="dash-stat-label">Live Listings</span>
+        <div className="dashboard-stats-inner">
+          <div className="dash-stat">
+            <span className="dash-stat-number">{properties.length}</span>
+            <span className="dash-stat-label">Total Listings</span>
+          </div>
+          <div className="dash-stat">
+            <span className="dash-stat-number">{pendingCount}</span>
+            <span className="dash-stat-label">Pending Review</span>
+          </div>
+          <div className="dash-stat">
+            <span className="dash-stat-number">{approvedCount}</span>
+            <span className="dash-stat-label">Live Listings</span>
+          </div>
         </div>
       </div>
 
@@ -111,7 +149,7 @@ function Dashboard({ onNavigate, user, token }) {
           <p className="dash-loading">Loading your listings...</p>
         ) : filtered.length === 0 ? (
           <div className="dashboard-empty">
-            <div className="empty-icon">??</div>
+            <div className="empty-icon">🏠</div>
             <h3>No listings yet</h3>
             <p>Click the button below to add your first property</p>
             <button className="dash-btn" onClick={() => onNavigate("list")}>Add Property</button>
@@ -137,7 +175,7 @@ function Dashboard({ onNavigate, user, token }) {
                   <h3>{property.title}</h3>
                   <p>{property.location}</p>
                   <p>{property.price_label}</p>
-                  <p>{property.bedrooms} bed � {property.bathrooms} bath</p>
+                  <p>{property.bedrooms} bed · {property.bathrooms} bath</p>
                 </div>
                 <div className="dash-card-actions">
                   <button className="dash-view-btn" onClick={() => onNavigate("detail", property)}>View</button>
@@ -150,8 +188,32 @@ function Dashboard({ onNavigate, user, token }) {
       </div>
 
       <footer className="footer">
-        <p>2026 Nyumba - Built for Malawi</p>
+        <p>&copy; 2026 Nyumba &middot; Built for Malawi</p>
       </footer>
+
+      <div className="bottom-nav">
+        <div className={`bottom-nav-item ${currentPage === 'home' ? 'active' : ''}`} onClick={() => onNavigate("home")}>
+          <HomeIcon />
+          <span>Home</span>
+        </div>
+        <div className={`bottom-nav-item ${currentPage === 'listings' ? 'active' : ''}`} onClick={() => onNavigate("listings")}>
+          <SearchIcon />
+          <span>Search</span>
+        </div>
+        <div className={`bottom-nav-item ${currentPage === 'list' ? 'active' : ''}`} onClick={() => onNavigate("list")}>
+          <PlusIcon />
+          <span>List</span>
+        </div>
+        <div className={`bottom-nav-item ${currentPage === 'saved' ? 'active' : ''}`} onClick={() => onNavigate(user ? "saved" : "auth")}>
+          <HeartIcon />
+          <span>Saved</span>
+        </div>
+        <div className={`bottom-nav-item ${currentPage === 'dashboard' ? 'active' : ''}`} onClick={() => onNavigate(user ? "dashboard" : "auth")}>
+          <UserIcon />
+          <span>{user ? "Profile" : "Login"}</span>
+        </div>
+      </div>
+
     </div>
   );
 }
